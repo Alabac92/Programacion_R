@@ -285,3 +285,73 @@ ggplot(data=diamonds) +
 
 # ggplot2 tiene muchas mas figuras geometricas que se pueden utilizar, para 
 # conocerlas se puede consultar la documentacion de ggplot
+
+# Mas sobre el suavizado
+
+# A veces, puede ser difícil comprender tendencias en tus datos solo a través 
+# de diagramas de dispersión. El suavizado permite detectar una tendencia de datos
+# aun cuando no puedes notar con facilidad una tendencia en los puntos de datos 
+# graficados. La funcionalidad de suavizado de ggplot2 es útil porque suma una l
+# ínea de suavizado como otra capa en un diagrama; la línea de suavizado ayuda a
+# que un observador casual entienda el sentido de los datos.
+
+# Dos tipos de suavizado
+
+# Suavizado loess
+# Óptimo para suavizar diagramas con menos de 1000 puntos
+ggplot(data=penguins) + 
+  geom_point(mapping = aes(x=flipper_length_mm,y=body_mass_g)) +
+  geom_smooth(mapping=aes(x=flipper_length_mm,y=body_mass_g),method = "loess")
+
+# Suavizado gam
+# El suavizado con modelos aditivos generalizados, es útil para suavizar
+# diagramas con un gran número de puntos
+ggplot(data=diamonds) + 
+  geom_point(mapping = aes(x=carat,y=price)) +
+  geom_smooth(mapping=aes(x=carat,y=price),method = "gam",formula = y ~s(x))
+
+# La funcionalidad de suavizado en ggplot2 ayuda a que los diagramas de datos 
+# sean más legibles, para que puedas reconocer mejor las tendencias de datos y 
+# sacar conclusiones clave.
+
+# # El método GAM (Generalized Additive Model) es una técnica de modelado 
+# estadístico que extiende los modelos lineales generalizados (GLM) permitiendo
+# que las relaciones entre las variables predictoras y la variable de respuesta 
+# sean no lineales. Los modelos aditivos generalizados se construyen sumando 
+# funciones suavizadas de las variables predictoras.
+# 
+# En el código que proporcionaste, `geom_smooth` se utiliza con el método "gam" 
+# para realizar un suavizado de los datos. La función `s(x)` en la fórmula 
+# específica cómo se suaviza la relación entre las variables. Aquí hay una 
+# explicación más detallada:
+#   - **Método "gam"**: Indica que se está utilizando un modelo aditivo 
+#   generalizado para realizar el suavizado. Este método es útil cuando
+#   se sospecha que la relación entre las variables no es estrictamente lineal 
+#   y puede tener patrones más complejos.
+# 
+#   - **`formula = y ~ s(x)`**: La fórmula especifica la relación entre la 
+#   variable de respuesta (`y`) y la variable predictora (`x`). En este caso, 
+#   se está utilizando una función suavizadora (`s()`) en la variable `x`. 
+#   La función `s()` es responsable de suavizar la relación, permitiendo así 
+#   que la relación sea no lineal.
+# 
+# En resumen, el código está creando un gráfico de dispersión (`geom_point`) de
+# los datos diamonds con las variables `carat` en el eje x y `price` en el eje y. 
+# Luego, utiliza `geom_smooth` con el método "gam" y una fórmula que incluye una 
+# función suavizadora `s(x)` para mostrar una línea suavizada que representa la 
+# relación entre `carat` y `price`. Esto ayuda a visualizar tendencias más suaves 
+# y a identificar patrones en los datos que pueden no ser evidentes en el gráfico 
+# de dispersión original.
+
+# El código está creando un gráfico de dispersión (geom_point) de los datos 
+# diamonds con las variables carat en el eje x y price en el eje y. Luego, 
+# utiliza geom_smooth con el método "gam" y una fórmula que incluye una función
+# suavizadora s(x) para mostrar una línea suavizada que representa la relación 
+# entre carat y price. Esto ayuda a visualizar tendencias más suaves y a 
+# identificar patrones en los datos que pueden no ser evidentes en el gráfico
+# de dispersión original.
+
+
+
+
+
