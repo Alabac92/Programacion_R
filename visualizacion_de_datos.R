@@ -178,3 +178,57 @@ ggplot(data=penguins) + geom_point(mapping = aes(x=flipper_length_mm,
 ggplot(data=penguins) + geom_point(mapping = aes(x=flipper_length_mm, 
                                                  y=body_mass_g,),
                                    color='purple')
+
+# Usando diferentes funciones geometricas
+
+# Anteriormente nos hemos centrado en los gráficos de dispersión de puntos,
+# pero existen diferentes gráficos que se pueden usar en ggplot al modificar
+# las figuras geometricas que representaran a nuestros datos.
+
+# En ggplot2 una figura geométrica es un objeto geométrico usado para representar
+# a nuestros datos. Las figuras geometricas incluyen puntos, barras, lineas, etc.
+
+# geom functions
+# geom_point(): Para graficos de dispersion de puntos
+# geom_bar(): Para gráficos de barras
+# geom_line(): Para graficos de linea
+# geom_smoot(): Grafica con linea suavizada
+# geom_jttler(): Crea diagramas de dispersión y luego agrega una pequeña cantidad
+# de ruido aleatorio, ayuda a lidiar con el trazado excesivo, que sucede cuando
+# los puntos de datos de un diagrama se super ponen unos con otros.
+
+# Para modificar la figura geometrica a utilizar es necesario modificar la funcion
+# geom en el codigo. Si queremos modificar el grafico de dispersion que mostraba
+# la relacion entre las variables flliper_length_mm y body_mass_g por una grafica
+# con una linea suave podemos hacerlo como sigue:
+
+ggplot(data=penguins) + geom_smooth(mapping = aes(x=flipper_length_mm,
+                                                y=body_mass_g))
+# La funcion geom_smooth es util para mostrar tendencias generales en nuestros datos.
+# La linea muestra con laridad la relación positiva entre nuestras variables.
+
+# Podemos combinar diferentes geometrias, supongamos que deseamos mostrar tanto
+# la tendencia general y los puntos individuales de nuestros datos.
+
+ggplot(data=penguins) +
+  geom_smooth(mapping = aes(x=flipper_length_mm,
+                            y=body_mass_g)) +
+  geom_point(mapping = aes(x=flipper_length_mm,
+                           y=body_mass_g))
+
+# Digamos que ahora queremos modelar una linea separada para cada especie
+
+ggplot(data=penguins) +
+  geom_smooth(mapping = aes(x=flipper_length_mm,
+                            y=body_mass_g, linetype=species))
+# El bloque anterior agrega la estetica linetype para que a cada especie de
+# pinguino le asigne una tipo de linea y una linea suavizada diferente.
+# Si quisieramos que las lineas fueran iguales pero una diferente para cada 
+# especie podemos utilizar la estitca line
+
+ggplot(data=penguins) +
+  geom_jitter(mapping = aes(x=flipper_length_mm, y=body_mass_g), color='green') +
+  geom_point(mapping = aes(x=flipper_length_mm, y=body_mass_g), color='red')
+
+# Con el codigo anterior comparamos ambas geometrias
+
