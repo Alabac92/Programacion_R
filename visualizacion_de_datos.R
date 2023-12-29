@@ -433,5 +433,18 @@ ggplot(data = penguins) +
   annotate("text", 
            x=220, y=3500,
            label= "The Gentoos are the largest",
-           color="purple",
+           color="black",
            fontface="bold",size=4.5,angle=25)
+
+# Guardar visualizaciones
+# Poder reproducir y compartir nuestro trabajo es importante en el analisis de 
+# datos. Para lograr guardar nuestras visualizaciones utilizamos la opción 
+# exportar en la pestaña de daigramas de RStudio o la funcion ggsave() que
+# ofrece el paquete ggplot2
+
+# Usando ggsave()
+# ggsave() es una funcion util para guardar un diagrama. De manera determinada
+# guarda el último diagrama que ejecutaste y lo guarda del tamaño del dispositivo
+# gráfico actual
+
+ggsave("palmer_penguins_ggsve.png")
