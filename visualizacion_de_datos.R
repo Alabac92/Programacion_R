@@ -393,3 +393,45 @@ ggplot(data=penguins) +
 # Y cada grafico representa la relacion body_mass_g vs flipper_length_mm.
 # con facet_grid() podemos reorganizar y mostrar con rapidez datos complejos
 # y hace que sea más fácil ver realciones entre diferentes grupos.
+
+# Personalizando la apariencia de nuestros diagramas
+
+# Usando las funciones label y annotate
+# En ggplot2, agregar anotaciones a un diagrama puede ayudar a explicar el
+# propósito del diagrama o a destacar datos importantes. Cuando presentas tus 
+# visualizaciones de datos a interesados, quizás no tengas mucho tiempo para 
+# reunirte con ellos. Las etiquetas y anotaciones dirigirán su atención a 
+# elementos clave y los ayudarán a comprender tu diagrama con rapidez. 
+
+# label()
+# Es util ara agregar etiquetas informativas a un diagrama, como titulos, 
+# subtitulos y leyendas
+
+# Agregando un titulo
+ggplot(data = penguins) +
+  geom_point(mapping = aes(x=flipper_length_mm, y=body_mass_g, color=species))+
+  labs(title="Palmer Penguins: Body Mass vs. Flipper Length",
+       subtitle = "Sample of Three Penguin Species",
+       caption = "Data collected by Dr. Kristen Gorman")
+
+# Si queres ingresar texto dentro de la cuadricula para destacar puntos de
+# datos especificos, utilzamos la siguiente funcion:
+
+# annotate()
+# Este texco comunica con claridad lo que muestra el diagrama y reforzará una
+# parte importante de nuestros datos.
+
+# Los argumentos de la función annotate incluyen informacion sobre el tipo de
+# etiqueta, coordenadas x e y donde se ubicara la etiqueta y el texto que 
+# incluirá la etiqueta.
+
+ggplot(data = penguins) +
+  geom_point(mapping = aes(x=flipper_length_mm, y=body_mass_g, color=species))+
+  labs(title="Palmer Penguins: Body Mass vs. Flipper Length",
+       subtitle = "Sample of Three Penguin Species",
+       caption = "Data collected by Dr. Kristen Gorman") +
+  annotate("text", 
+           x=220, y=3500,
+           label= "The Gentoos are the largest",
+           color="purple",
+           fontface="bold",size=4.5,angle=25)
