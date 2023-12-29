@@ -351,7 +351,45 @@ ggplot(data=diamonds) +
 # identificar patrones en los datos que pueden no ser evidentes en el gráfico
 # de dispersión original.
 
+# Estetica y facetas
 
+# Las facetas permite crear grupos mas pequeños o subconjutnos de datos. Las
+# facetas muestran diferentes caras de los datos. El uso de facetas ayuda a 
+# descubrir nuevos patrones y enfocarte en relaciones entre diferentes variables.
 
+# ggplot2 tiene dos funciones para facetas:
+# facet_wrap() y facet_grid()
 
+# facet_wrap()
+# Nos sirve para crear subconjuntos a traves de una sola variable. Esto se 
+# ejemplifica con el conjunto de datos de pinguinos, en donde podriamos querer
+# crear un diagrama por separado para cada especie.
 
+ggplot(data=penguins) + 
+  geom_point(mapping = aes(x=flipper_length_mm,
+                           y=body_mass_g, color=species)) +
+  facet_wrap(~species)
+
+# Ejemplo con el conjunto de datos diamons
+ggplot(data=diamonds) + 
+  geom_bar(mapping = aes(x=color, fill=cut)) +
+  facet_wrap(~cut)
+
+# facet_grid()
+# Si deseamos facetar nuestros datos por mas de una variable utilizamos
+# facet_grid(), esto separa los diagramas en facetas verticalmente según los
+# valres de la primera variable y horizontalmente según los valores de la 
+# segunda variable.
+
+# Por ejemplo podemos tomar nuestro diagrama de pinguinos y usar facet_grid
+# con las variables, sex y species
+
+ggplot(data=penguins) + 
+  geom_point(mapping = aes(x=flipper_length_mm,
+                           y=body_mass_g, color=species)) +
+  facet_grid(sex~species)
+
+# El codigo anterior crea 9 gráficos diferentes, hay 3 especies y 3 generos. 
+# Y cada grafico representa la relacion body_mass_g vs flipper_length_mm.
+# con facet_grid() podemos reorganizar y mostrar con rapidez datos complejos
+# y hace que sea más fácil ver realciones entre diferentes grupos.
