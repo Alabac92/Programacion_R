@@ -232,3 +232,56 @@ ggplot(data=penguins) +
 
 # Con el codigo anterior comparamos ambas geometrias
 
+# Graficas de barras
+
+# Para ejemplificar su uso, utilizaremos elconjunto de datos de diamantes,
+# incluidos en ggplot2
+
+data("diamonds")
+View(diamonds)
+
+# Creacion de un grafico de barras (vertical)
+
+ggplot(data=diamonds) + 
+  geom_bar(mapping = aes(x=cut))
+
+# Creacion de un grafico de barras (vertical)
+
+ggplot(data=diamonds) + 
+  geom_bar(mapping = aes(y=cut))
+
+# Cuando solo especificamos solo un eje para un grafico de barras, R de manera
+# automatica completa el otro eje con el conteo de observaciones para las 
+# categorias existentes en el eje que si se ha especificado.
+
+# Esta geometria utiliza las diversas esteticas que hemos mencionado anteriormente,
+# teniendo algunas particularidades como es la estetica fill
+# Apliquemos la estetica color a la variable cut
+
+ggplot(data=diamonds) + 
+  geom_bar(mapping = aes(x=cut, color=cut))
+
+# El codigo anterior aplica color pero solo a los contronos de nuestras barras,
+# si queremos que el color se aplique tambien en el relleno (que es lo mas comun),
+# podemos usar la estetica fill
+
+ggplot(data=diamonds) + 
+  geom_bar(mapping = aes(x=cut, fill=cut))
+
+# En este ultimo ejemplo producimos un grafico de barras con relleno de colores,
+# pero es importante hacer la observacion de que aplicamos la estetica fill sobre
+# la misma variable que estamos mapeando. Si por el contrario, indicamos como
+# variable de aplicacion de la estetica fill una diferente a la especificada
+# produciremos un grafico de barras apiladas.
+
+# Apliquemos fill a clarity en vez de cur
+
+ggplot(data=diamonds) + 
+  geom_bar(mapping = aes(x=cut, fill=clarity))
+
+# Ahora nuestro grafico muestra 40 combinaciones diferentes de corte y claridad,
+# 5 categorias por 8 niveles diferentes de claridad. Cada combinacion tiene su
+# propio bloque 
+
+# ggplot2 tiene muchas mas figuras geometricas que se pueden utilizar, para 
+# conocerlas se puede consultar la documentacion de ggplot
