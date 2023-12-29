@@ -105,3 +105,76 @@ ggplot(data = penguins) +geom_point(mapping = aes(x = flipper_length_mm,
 
 # El diagrama muestra una relación positiva entre las dos variables.
 # Es decir, cuanto más grande es el pingüino, más larga es la aleta.
+
+# Consejo profesional: Puedes escribir la misma sección de código que aparece
+# arriba usando una sintaxis diferente con el argumento de mapeo dentro de la
+# llamada de ggplot(): 
+#   ggplot(data = penguins, mapping = aes(x = flipper_length_mm, 
+#                                         y = body_mass_g)) + geom_point()
+
+#  Modificar la apariencia de las visualizaciones
+
+# Con la estética podemos cambiar la apariencia de nuestros datos en la 
+# visualizacion que estamos crando. Existen tres atributos básicos a tener en
+# cuenta al crear visualizaciones de datos.
+
+# La estética se define como una propiedad visual de un objeto de tu diagrama y
+# los tres atributos eséticos son los siguientes:
+
+# color, tamaño y forma
+
+# color: te permite modificar el color de todos los puntos de tu diagrama o el
+# color de cada grupo de datos.
+
+ggplot(data=penguins) + geom_point(mapping = aes(x=flipper_length_mm, 
+                                                 y=body_mass_g,
+                                                 color=species))
+# En el bloque anterior decimos que cambie el color por cada especie diferente.
+
+# tamaño: te permite modificar el tamaño de los puntos de tu diagrama por grupo
+# de datos
+
+# forma: te permite modificar la forma de los puntos de tu diagrama por grupo 
+# de datos
+
+ggplot(data=penguins) + geom_point(mapping = aes(x=flipper_length_mm, 
+                                                 y=body_mass_g,
+                                                 shape=species))
+# Aqui destacamos las diferentes especies usando diferentes formas geometricas
+# aplicando la variable especies a la estetica shape
+
+# Podemos aplicar más de una estetica a una misma variable
+ggplot(data=penguins) + geom_point(mapping = aes(x=flipper_length_mm, 
+                                                 y=body_mass_g,
+                                                 shape=species, color=species))
+# Aplicando las tres esteticas
+ggplot(data=penguins) + geom_point(mapping = aes(x=flipper_length_mm, 
+                                                 y=body_mass_g,
+                                                 shape=species, 
+                                                 color=species,
+                                                 size=species))
+# estetica alpha
+# Esta estetica mapaea nuestros datos con la estetica alfa que controla la 
+# transparencia de los puntos.
+ggplot(data=penguins) + geom_point(mapping = aes(x=flipper_length_mm, 
+                                                 y=body_mass_g,
+                                                 alpha=species))
+
+# Todo lo relacionado con la estetica de nuestro conjunto de datos ira dentro de
+# la funcion aes(), definir los ejex x e y son parte de la estetica. Como  se 
+# mencionó, modificar el color, tamaño y forma es parte de la estetica, por lo 
+# que si deseamos modificarlos iran dentro de la función mecionada.
+
+# Con la funcion aes, tambien mapeamos nuestros datos lo que significa emparejar
+# una variable especifica en tu conjunto de datos con una estética especifica.
+
+# Podemos fijar una estetica por separado de una variable especifica. 
+# Digamos que queremos cambiar el color de tosos los puntos a violeta.
+# Pero no queremos aplicar color a una variable especifica como especia. Solo
+# queremos que cada punto de nuestro diagrama de dispersion sea violeta. Para 
+# lograrlo debemos colocar nuestro nuevo trozo de codigo fuera de la funcion
+# aes y usar comillas para nuestro valor de color.
+
+ggplot(data=penguins) + geom_point(mapping = aes(x=flipper_length_mm, 
+                                                 y=body_mass_g,),
+                                   color='purple')
