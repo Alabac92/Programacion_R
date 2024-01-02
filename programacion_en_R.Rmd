@@ -1,0 +1,16 @@
+---
+title: "Programacion en R"
+author: "Alfredo Aburto Alcudia: Curso de analisis de datos con Google"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true # Mostrar tabla de contenido en documento R markdown
+    toc_depth: 3 # Niveles de la tabla de contenidoo
+    toc_float: true # Mostrar la tabla de contenido en todo el documento
+    collapsed: true # Si solo queremos que muestre el nivel principal
+    smooth_scroll: true # Reflejar nuestra ubicación en barra de contenido
+    theme: journal # Estilo del documento
+    highlight: kate # Estilo del codigo
+    df_print: paged # Estilo para mostrar los datos
+    code_folding: show # Mostrar o no el código del documento
+---
