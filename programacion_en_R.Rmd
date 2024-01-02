@@ -329,7 +329,7 @@ penguins %>%
   filter(species == "Adelie") # Exactamente igual a la especia Adelie
 ```
 
-## Transfromación de Datos
+## Transformación de Datos
 A veces necesitamos dividir una variable entre múltiples columnas o
 combinar las columnas atuales, o incluso agregar nuevos valores a el 
 marco de datos. Las funciones básicas incluyen:
@@ -403,4 +403,49 @@ crearemos una nueva columna con la masa corporal en kg
 penguins %>% 
   mutate(body_mass_kg = body_mass_g/1000, flipper_length_m=flipper_length_mm/1000)
 ```
+
+### Mismos datos diferentes resultados
+
+Instalamos el paquete donde se encuentra el data set sobre el
+cuarteto de Anscombe
+```{r}
+install.packages('Tmisc')
+```
+
+Cargamos los datos
+```{r}
+library(Tmisc)
+data(quartet)
+View(quartet)
+```
+
+Este conjunto de datos contiene 4 conjuntos de ejex x e y.
+Los datos se pueden resumir a través de diferentes parametros estadisticos.
+Obtendremos un resumen de cada conjunto de datos con la media, desvest y la
+correalacion.
+
+Cargamos paquetes necesarios para usar summarize
+
+```{r instala_dplyr}
+install.packages("dplyr")
+library(dplyr)
+```
+```{r}
+quartet %>% 
+  group_by(set) %>% 
+  summarize(mean(x), sd(x), mean(y), sd(y), cor(x, y))
+```
+
+Al observar la salida del comando anterior podemos ver que tanto la media,
+como la desviacion estandar y la correlacion entre las variables x e y en 
+cada cuadrante es identica. Pero mirar unicamente el resumen estadistico puede
+resultar engañoso. Para notar esto, creaeremos algunos gráficos:
+
+```{r}
+ggplot(quartet,aes(x,y)) + geom_point() + geom_smooth(method=lm, se=FALSE) + 
+  facet_wrap(~set)
+```
+
+Los gráficos generados muestran las grandes diferencias que hay para cada 
+cuadrante
 </div>
