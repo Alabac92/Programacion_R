@@ -3,6 +3,11 @@
 ¡Bienvenido al repositorio de programación en R! Aquí encontrarás herramientas y técnicas para manipular, transformar y visualizar datos de una manera creativa 
 y efectiva. ¡Vamos a sumergirnos en el fascinante universo de R juntos!
 
+## 💎 Archivo Importante
+
+Estos son los archivos centrales de nuestro proyecto. No olvides revisarlos en en
+[programacion_en_R.pdf](https://github.com/Alabac92/Programacion_R/blob/main/programacion_en_R.pdf) y en [programacion_en_R.Rmd](https://github.com/Alabac92/Programacion_R/blob/main/programacion_en_R.Rmd) para obtener el código fuente.
+
 ## Estructuras de Datos
 En esta sección, descubrirás las diversas estructuras de datos que R ofrece. Desde vectores hasta listas, exploraremos cómo utilizar estas poderosas estructuras 
 para organizar y manipular datos de manera eficiente.
