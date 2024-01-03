@@ -509,7 +509,7 @@ El sesgo se refiere a la tendencia sistemática de los errores, es decir,
 si las predicciones tienden a ser sistemáticamente más altas o más bajas que 
 los valores reales.
 
-### Visualizacion de datos
+## Visualizacion de datos
 En R existen multiples paquetes que permiten crear visualizacion de datos.
 Plotly te permite realizar una gran variedad de funciones de visualización,
 por otro lado, RGL se enfoca en soluciones específicas como visualizaciones 3D.
@@ -525,7 +525,7 @@ Algunos de los paquetes más populares incluyen:
 - Patchwork, 
 - gganimate y ggridges. 
 
-#### ggplot2
+### ggplot2
 Creado por el estadístico y desarrolador Hadley Wickham en 2005, inspirado por
 el libro "The Grammar of Graphics", un estudio académico sobre la visualizacion
 de datos, escrito por el cientifico de la computación Leland Wilkinson.
@@ -557,12 +557,12 @@ Nos enfocaremos en algunos conceptos centrales en ggplot2:
 - facetas
 - etiquetas y anotaciones.
 
-#### Estética
+### Estética
 La estética incluye cosas como el tamaño, la forma y el color de tus puntos de 
 datos. Piensa en una estética como una conexión o mapeo entre una característica 
 visual en tu diagrama y una variable en tus datos. 
 
-#### Figuras geométricas
+### Figuras geométricas
 Una figura geométrica se refiere al objeto geométrico usado para representar 
 tus datos. Por ejemplo, puedes usar puntos para crear un diagrama de dispersión,
 barras para crear un gráfico de barras o líneas para crear un diagrama de líneas. 
@@ -570,17 +570,17 @@ Puedes elegir una figura geométrica que se adapte al tipo de datos que tienes.
 Los puntos muestran la relación entre dos variables cuantitativas. 
 Las barras muestran una variable cuantitativa que varía entre diferentes categorías.
 
-#### Facetas
+### Facetas
 Las facetas te permiten mostrar grupos más pequeños, o subconjuntos, de datos.
 Con las facetas, puedes crear diagramas separados para todas las variables 
 en tu conjunto de datos.
 
-#### Funciones label y annotate
+### Funciones label y annotate
 Por último, las funciones label y annotate te dejan personalizar tu diagrama. 
 Puedes agregar texto como títulos, subtítulos y leyendas para comunicar el
 propósito de tu diagrama o destacar datos importantes.
 
-#### Proceso de creación de un diagrama
+### Proceso de creación de un diagrama
 
 1. Preparar datps
 
@@ -644,7 +644,7 @@ Es decir, cuanto más grande es el pingüino, más larga es la aleta.
                                          y = body_mass_g)) + geom_point()
 ```
 
-####  Modificar la apariencia de las visualizaciones
+###  Modificar la apariencia de las visualizaciones
 
 Con la estética podemos cambiar la apariencia de nuestros datos en la 
 visualizacion que estamos crando. Existen tres atributos básicos a tener en
@@ -740,7 +740,7 @@ las figuras geometricas que representaran a nuestros datos.
 En ggplot2 una figura geométrica es un objeto geométrico usado para representar
 a nuestros datos. Las figuras geometricas incluyen puntos, barras, lineas, etc.
 
-#### geom functions
+### geom functions
 - geom_point(): Para graficos de dispersion de puntos
 - geom_bar(): Para gráficos de barras
 - geom_line(): Para graficos de linea
@@ -795,7 +795,7 @@ ggplot(data=penguins) +
 
 Con el codigo anterior comparamos las geometrias jitter y point.
 
-##### Graficas de barras
+#### Graficas de barras
 
 Para ejemplificar su uso, utilizaremos el conjunto de datos de diamantes,
 incluidos en ggplot2
@@ -866,7 +866,7 @@ propio bloque
 ggplot2 tiene muchas mas figuras geometricas que se pueden utilizar, para 
 conocerlas se puede consultar la documentacion de ggplot
 
-#### Mas sobre el suavizado
+### Mas sobre el suavizado
 
 A veces, puede ser difícil comprender tendencias en tus datos solo a través 
 de diagramas de dispersión. El suavizado permite detectar una tendencia de datos
@@ -875,7 +875,7 @@ graficados. La funcionalidad de suavizado de ggplot2 es útil porque suma una l
 ínea de suavizado como otra capa en un diagrama; la línea de suavizado ayuda a
 ue un observador casual entienda el sentido de los datos.
 
-##### Suavizado loess
+#### Suavizado loess
 
 Óptimo para suavizar diagramas con menos de 1000 puntos
 
@@ -886,7 +886,7 @@ ggplot(data=penguins) +
 
 ```
 
-##### Suavizado gam
+#### Suavizado gam
 
 El suavizado con modelos aditivos generalizados, es útil para suavizar
 diagramas con un gran número de puntos
@@ -938,7 +938,7 @@ entre carat y price. Esto ayuda a visualizar tendencias más suaves y a
 identificar patrones en los datos que pueden no ser evidentes en el gráfico
 de dispersión original.
 
-#### Estetica y facetas
+### Estetica y facetas
 
 Las facetas permite crear grupos mas pequeños o subconjutnos de datos. Las
 facetas muestran diferentes caras de los datos. El uso de facetas ayuda a 
@@ -948,7 +948,7 @@ ggplot2 tiene dos funciones para facetas:
 - facet_wrap() 
 - facet_grid()
 
-##### facet_wrap()
+#### facet_wrap()
 Nos sirve para crear subconjuntos a traves de una sola variable. Esto se 
 ejemplifica con el conjunto de datos de pinguinos, en donde podriamos querer
 crear un diagrama por separado para cada especie.
@@ -969,7 +969,7 @@ ggplot(data=diamonds) +
 
 ```
 
-#####facet_grid()
+#### facet_grid()
 Si deseamos facetar nuestros datos por mas de una variable utilizamos
 facet_grid(), esto separa los diagramas en facetas verticalmente según los
 valores de la primera variable y horizontalmente según los valores de la 
@@ -990,16 +990,16 @@ Y cada grafico representa la relacion body_mass_g vs flipper_length_mm.
 con facet_grid() podemos reorganizar y mostrar con rapidez datos complejos
 y hace que sea más fácil ver realciones entre diferentes grupos.
 
-#### Personalizando la apariencia de nuestros diagramas
+### Personalizando la apariencia de nuestros diagramas
 
-##### Usando las funciones label y annotate
+#### Usando las funciones label y annotate
 En ggplot2, agregar anotaciones a un diagrama puede ayudar a explicar el
 propósito del diagrama o a destacar datos importantes. Cuando presentas tus 
 visualizaciones de datos a interesados, quizás no tengas mucho tiempo para 
 reunirte con ellos. Las etiquetas y anotaciones dirigirán su atención a 
 elementos clave y los ayudarán a comprender tu diagrama con rapidez. 
 
-###### label()
+##### label()
 Es util para agregar etiquetas informativas a un diagrama, como titulos, 
 subtitulos y leyendas
 
@@ -1016,7 +1016,7 @@ ggplot(data = penguins) +
 Si queres ingresar texto dentro de la cuadricula para destacar puntos de
 datos especificos, utilzamos la siguiente funcion:
 
-###### annotate()
+##### annotate()
 Este texco comunica con claridad lo que muestra el diagrama y reforzará una
 parte importante de nuestros datos.
 
@@ -1038,13 +1038,13 @@ ggplot(data = penguins) +
 ```
 
 
-##### Guardar visualizaciones
+#### Guardar visualizaciones
 Poder reproducir y compartir nuestro trabajo es importante en el analisis de 
 datos. Para lograr guardar nuestras visualizaciones utilizamos la opción 
 exportar en la pestaña de daigramas de RStudio o la funcion ggsave() que
 ofrece el paquete ggplot2
 
-###### Usando ggsave()
+##### Usando ggsave()
 
 ggsave() es una funcion util para guardar un diagrama. De manera determinada
 guarda el último diagrama que ejecutaste y lo guarda del tamaño del dispositivo
